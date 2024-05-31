@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import '../css/Login.css';
 
 const Login = ({setIsConnected,setCurrentComponent}) => {
-  const [login, setLogin] = useState('noah@gmail.com');
+  const [login, setLogin] = useState('admin@gmail.com');
   const [pwd, setPwd] = useState('0000');
   const [loading, setLoading] = useState(true);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -17,19 +17,22 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
   const handleLogin = async (e) => {
     e.preventDefault();
 	setFormSubmitted(true)
-	const utilisateur = { login, pwd };
-    
+
     try {
-		const response = await fetch('http://localhost:3000/utilisateurs', {
+		const response = await fetch('http://localhost:2000/utilisateurs', {
 			method: 'POST',
 			headers: {
-			  'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(utilisateur)
-		});
+			body: JSON.stringify({
+				mail: login,
+				mdp : pwd,
+			}),
+      	});
 
       if (response.ok) {
         const data = await response.json();
+		console.log(data._idUtilisateur);
         localStorage.setItem('id_utilisateur', data._idUtilisateur);
         localStorage.setItem('profil', data._profil);
         setIsConnected(true);

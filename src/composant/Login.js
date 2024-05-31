@@ -20,7 +20,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 	const utilisateur = { login, pwd };
     
     try {
-		const response = await fetch('https://etudiant-backend.vercel.app/utilisateurs', {
+		const response = await fetch('http://localhost:3000/utilisateurs', {
 			method: 'POST',
 			headers: {
 			  'Content-Type': 'application/json'

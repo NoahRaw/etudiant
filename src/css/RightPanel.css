@@ -1,0 +1,10 @@
+.logo {
+    animation: rotate 5s infinite linear;
+  }
+  
+  @keyframes rotate {
+    30% {
+      transform: rotate(10deg);
+    }
+    
+  }

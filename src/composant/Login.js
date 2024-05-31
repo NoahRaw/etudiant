@@ -1,0 +1,116 @@
+/* eslint-disable react/style-prop-object */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from 'react';
+import '../css/Login.css';
+
+const Login = ({setIsConnected,setCurrentComponent}) => {
+  const [login, setLogin] = useState('noah@gmail.com');
+  const [pwd, setPwd] = useState('0000');
+  const [loading, setLoading] = useState(true);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const voir = () => 
+  {
+	setCurrentComponent('AllAnnonceRetour')
+  }
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+	setFormSubmitted(true)
+	const utilisateur = { login, pwd };
+    
+    try {
+		const response = await fetch('https://etudiant-backend.vercel.app/utilisateurs', {
+			method: 'POST',
+			headers: {
+			  'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(utilisateur)
+		});
+
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('id_utilisateur', data._idUtilisateur);
+        localStorage.setItem('profil', data._profil);
+        setIsConnected(true);
+		setCurrentComponent('acceuil');
+      } else {
+        console.error('Erreur lors de l\'authentification');
+      }
+    } catch (error) {
+      console.error('Erreur lors de la requête HTTP:', error);
+    }
+	finally
+      {
+        setLoading(false);
+		setFormSubmitted(false)
+      }
+  };
+
+  return (
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form onSubmit={handleLogin} class="login100-form validate-form">
+					<span class="login100-form-title p-b-43">
+						Login to continue
+					</span>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" value={login} onChange={(e) => setLogin(e.target.value)} type="email" placeholder='email'/>
+						<span class="focus-input100"></span>
+						{/* <span class="label-input100">Email</span> */}
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" value={pwd} onChange={(e) => setPwd(e.target.value)} placeholder='Your password'/>
+						<span class="focus-input100"></span>
+						{/* <span class="label-input100">Password</span> */}
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Login
+						</button>
+					</div>
+
+					{formSubmitted && loading === true && (
+					<div style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>
+						<img src="Loading_2.gif" alt="Loading..." />
+					</div>
+					)}
+
+					<div class="container-login100-form-btn" style={{"margin-top": "50px"}}>
+						<button class="login100-form-btn" onClick={voir} style={{"background": "black"}}>
+							voir la liste des annonce
+						</button>
+					</div>
+					
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+							or sign up using
+						</span>
+					</div>
+
+					<div class="login100-form-social flex-c-m">
+						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fa fa-facebook-f" aria-hidden="true"></i>
+						</a>
+
+						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+				<div class="login100-more" style={{backgroundImage: `url('https://images.bfmtv.com/UsUszd-6qH5LSvmGP4LK5ZkJgwE=/4x3:1252x705/800x0/images/-180591.jpg')`}}>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  );
+};
+
+export default Login;

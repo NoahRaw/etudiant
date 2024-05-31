@@ -1,0 +1,7 @@
+/* DetailProduct.css */
+
+.Footer {
+    display: flex;          /* Utilise Flexbox pour créer un conteneur flexible */
+    justify-content: space-around; /* Répartit l'espace disponible entre les éléments, les alignant uniformément */
+  }
+  

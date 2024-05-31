@@ -1,0 +1,18 @@
+  /* DetailProduct.css */
+
+.imagePrincipale {
+    /* Ajoute les styles nécessaires pour l'image principale */
+  }
+  
+  .DetailProduct {
+    display: flex;
+    flex-direction: column;  /* Aligne les éléments verticalement (en colonne) */
+    align-items: center;     /* Centre les éléments horizontalement */
+    text-align: center;      /* Centre le texte horizontalement */
+  }
+  
+  /* Ajoute une marge en haut pour espacer l'image principale des éléments suivants */
+  .DetailProduct > div:not(.imagePrincipale) {
+    margin-top: 10px;
+  }
+  

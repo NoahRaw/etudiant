@@ -1,0 +1,33 @@
+/* Style de base pour le composant Filter */
+
+.Filter {
+    max-width: 300px;   /* Définit une largeur maximale pour le composant */
+    margin: 20px auto;  /* Centre le composant avec une marge extérieure */
+  }
+  
+  .Filter h3 {
+    color: #333;        /* Couleur du texte du titre */
+  }
+  
+  .Filter form {
+    display: flex;      /* Utilise Flexbox pour aligner les éléments du formulaire en colonne */
+    flex-direction: column;
+  }
+  
+  .Filter form div {
+    margin-bottom: 10px; /* Ajoute une marge en bas entre les div du formulaire */
+  }
+  
+  .Filter form input[type="text"] {
+    width: 100%;         /* Occupe la largeur complète de son conteneur */
+    padding: 8px;        /* Ajoute un rembourrage interne aux champs de texte */
+    margin-top: 4px;     /* Ajoute une petite marge en haut pour l'espacement */
+  }
+  
+  .Filter form input[type="submit"] {
+    background-color: #4CAF50; /* Couleur de fond pour le bouton "search" */
+    color: white;              /* Couleur du texte pour le bouton "search" */
+    border: none;              /* Supprime la bordure du bouton */
+    padding: 8px 16px;         /* Ajoute un rembourrage interne au bouton */
+    cursor: pointer;           /* Ajoute un indicateur de pointeur au survol du bouton */
+  }

@@ -1,0 +1,14 @@
+/* AllProducts.css */
+
+/* Ajuste la largeur en fonction du nombre de colonnes */
+.DetailProduct {
+    width: calc(33.33% - 20px); /* 20px pour compenser les marges */
+    margin-bottom: 100px; /* Ajoute une marge entre les lignes */
+  }
+/* Utilise Flexbox pour aligner les composants en groupes de trois par ligne */
+.AllProducts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  

@@ -1,0 +1,29 @@
+/* DetailProduct.css */
+
+.LienLienFooter {
+    margin-bottom: 20px;  /* Ajoute une marge en bas pour espacer les composants dans le pied de page */
+  }
+  
+  .LienLienFooter p {
+    font-weight: bold;   /* Rend le texte du titre en gras */
+  }
+  
+  .LienLienFooter ul {
+    list-style-type: none; /* Supprime les puces de la liste */
+    padding: 0;           /* Supprime le remplissage par défaut de la liste */
+  }
+  
+  .LienLienFooter li {
+    margin-bottom: 8px;   /* Ajoute une marge en bas entre les éléments de la liste */
+  }
+  
+  .LienLienFooter a {
+    text-decoration: none; /* Supprime la décoration du lien (soulignement par défaut) */
+    color: #333;           /* Couleur du texte du lien */
+  }
+  
+  .LienLienFooter a:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol du lien */
+    color: #007bff;             /* Change la couleur du texte au survol */
+  }
+  

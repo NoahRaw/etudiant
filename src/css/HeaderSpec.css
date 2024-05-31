@@ -1,0 +1,25 @@
+/* DetailProduct.css */
+
+.HeaderSpec {
+    display: flex;            /* Utilise Flexbox pour créer un conteneur flexible */
+    justify-content: space-between; /* Répartit l'espace disponible entre les éléments, les alignant aux extrémités */
+    align-items: center;       /* Centre les éléments verticalement */
+    padding: 10px;             /* Ajoute une marge interne pour plus d'espace autour des éléments */
+  }
+  
+  .HeaderSpec form {
+    display: flex;            /* Utilise Flexbox pour créer un conteneur flexible pour le formulaire */
+  }
+  
+  .HeaderSpec form input[type="text"] {
+    margin-right: 10px;       /* Ajoute une marge à droite du champ de texte */
+  }
+  
+  .HeaderSpec form input[type="submit"] {
+    background-color: #4CAF50; /* Couleur de fond pour le bouton "search" */
+    color: white;              /* Couleur du texte pour le bouton "search" */
+    border: none;              /* Supprime la bordure du bouton */
+    padding: 8px 16px;         /* Ajoute un rembourrage interne au bouton */
+    cursor: pointer;           /* Ajoute un indicateur de pointeur au survol du bouton */
+  }
+  

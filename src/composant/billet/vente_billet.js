@@ -14,7 +14,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 
     useEffect(() => {
         // Appel API pour récupérer les localisations
-        fetch('http://localhost:2000/utilisateurs/localisations')
+        fetch('https://etudiant-backend.vercel.app/utilisateurs/localisations')
             .then(response => response.json())
             .then(data => setLocalisations(data))
             .catch(error => console.error('Error fetching localisations:', error));
@@ -35,7 +35,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
     const id_utilisateur =localStorage.getItem('id_utilisateur');
 
     try {
-		const response = await fetch('http://localhost:2000/billet/vente', {
+		const response = await fetch('https://etudiant-backend.vercel.app/billet/vente', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

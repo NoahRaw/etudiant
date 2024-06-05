@@ -6,7 +6,7 @@ const StatistiqueRevenue = () => {
   useEffect(() => {
     const fetchCommissions = async () => {
       try {
-        const response = await fetch('http://localhost:2000/utilisateurs/stat_billet_etudiant');
+        const response = await fetch('https://etudiant-backend.vercel.app/utilisateurs/stat_billet_etudiant');
         if (response.ok) {
           const data = await response.json();
           setData(data);

@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import Header from './composant/template/Header.js';
 import Footer from './composant/template/Footer.js';
 import Login from "./composant/Login";
-import recherche from "./composant/Acceuil.js";
+import vente_billet from "./composant/billet/vente_billet.js";
+import NbrBilletVenduParEtudiant from "./composant/billet/nbrBilletVenduParEtudiant.js";
 
 import './App.css';
 
@@ -13,16 +14,16 @@ export default function App(params) {
   const [isConnected, setIsConnected] = useState(false);
 
   const components = {
-    recherche: recherche,
+    vente_billet: vente_billet,
   };
 
   const renderComponent = () => {
       const ComponentToRender = components[currentComponent];
       switch (currentComponent) {
-        case 'composant_1':
+        case 'vente_billet':
           return <ComponentToRender/>;
-        case 'composant_2':
-          return <Login setIsConnected={setIsConnected} setCurrentComponent={setCurrentComponent}/>;
+        case 'nbrBilletVenduParEtudiant':
+          return <NbrBilletVenduParEtudiant/>;
         default:
           return <Login setIsConnected={setIsConnected} setCurrentComponent={setCurrentComponent}/>;
       }

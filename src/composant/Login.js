@@ -16,7 +16,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-	setFormSubmitted(true)
+	setFormSubmitted(true);
 
     try {
 		const response = await fetch('https://etudiant-backend.vercel.app/utilisateurs', {
@@ -34,9 +34,10 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
         const data = await response.json();
 		console.log(data._idUtilisateur);
         localStorage.setItem('id_utilisateur', data._idUtilisateur);
+		console.log(`id_utilisateur ${data._idUtilisateur}`)
         localStorage.setItem('profil', data._profil);
         setIsConnected(true);
-		setCurrentComponent('acceuil');
+		setCurrentComponent('vente_billet');
       } else {
         console.error('Erreur lors de l\'authentification');
       }
@@ -107,7 +108,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 						</a>
 					</div>
 				</form>
-				<div class="login100-more" style={{backgroundImage: `url('https://images.bfmtv.com/UsUszd-6qH5LSvmGP4LK5ZkJgwE=/4x3:1252x705/800x0/images/-180591.jpg')`}}>
+				<div class="login100-more" style={{backgroundImage: `url('background.jpg')`}}>
 				</div>
 			</div>
 		</div>

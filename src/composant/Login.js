@@ -37,7 +37,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 		console.log(`id_utilisateur ${data._idUtilisateur}`)
         localStorage.setItem('profil', data._profil);
         setIsConnected(true);
-		setCurrentComponent('vente_billet');
+		setCurrentComponent('nbrBilletVenduParEtudiant');
       } else {
         console.error('Erreur lors de l\'authentification');
       }

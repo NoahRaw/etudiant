@@ -4,6 +4,7 @@ import Header from './composant/template/Header.js';
 import Footer from './composant/template/Footer.js';
 import Login from "./composant/Login";
 import vente_billet from "./composant/billet/vente_billet.js";
+import NbrBilletVenduParEtudiant from "./composant/billet/nbrBilletVenduParEtudiant.js";
 
 import './App.css';
 
@@ -21,8 +22,8 @@ export default function App(params) {
       switch (currentComponent) {
         case 'vente_billet':
           return <ComponentToRender/>;
-        case 'composant_2':
-          return <Login setIsConnected={setIsConnected} setCurrentComponent={setCurrentComponent}/>;
+        case 'nbrBilletVenduParEtudiant':
+          return <NbrBilletVenduParEtudiant/>;
         default:
           return <Login setIsConnected={setIsConnected} setCurrentComponent={setCurrentComponent}/>;
       }

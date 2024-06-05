@@ -11,26 +11,10 @@ const Header = ({setCurrentComponent,setIsConnected}) => {
 
     const deconnection = async (componentKey) => {
         setLoading(true)
-        const authToken = localStorage.getItem('authToken');
-    
-        try {
-          const response = await fetch(`https://voitureoccasion-production-d019.up.railway.app/Utilisateurs/deconnection`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${authToken}`,
-            }
-          });
-    
-          if (response.ok) {
-            localStorage.removeItem('authToken');
-            setCurrentComponent(componentKey);
-            setIsConnected(false);
-          }
-    
-        } catch (error) {
-          console.error('Erreur lors de la requête HTTP:', error);
-        }
+        localStorage.removeItem("profil");
+        localStorage.removeItem("id_utilisateur");
+        setCurrentComponent(componentKey);
+        setIsConnected(false);
       };
 
     return(
@@ -74,12 +58,9 @@ const Header = ({setCurrentComponent,setIsConnected}) => {
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>               
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="#" onClick={() => handleClick('allAnnonce')}>Home</a></li>
-                                            <li><a href="#" onClick={() => handleClick('chatBody')}>Message</a></li>
-                                            <li><a href="#" onClick={() => handleClick('historiqueAnnonce')}>Historique</a></li>
-                                            <li><a href="#" onClick={() => handleClick('allAnnonce')}>Liste annonce</a></li>
-                                            <li><a href="#" onClick={() => handleClick('ListeFavoris')}>Liste annonce favoris</a></li>
-                                            <li><a href="#" onClick={() => handleClick('recherche')}>Recherche avancé</a></li>
+                                            <li><a href="#" onClick={() => handleClick('nbrBilletVenduParEtudiant')}>Home</a></li>
+                                            <li><a href="#" onClick={() => handleClick('nbrBilletVenduParEtudiant')}>Vente de billets par etudiant</a></li>
+                                            <li><a href="#" onClick={() => handleClick('vente_billet')}>Vente de billets</a></li>
                                             {loading===false &&
                                                 <li><a href="#" onClick={() => deconnection('login')}>Deconnexion</a></li>
                                             }

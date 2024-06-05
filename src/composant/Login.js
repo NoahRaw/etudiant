@@ -34,6 +34,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
         const data = await response.json();
 		console.log(data._idUtilisateur);
         localStorage.setItem('id_utilisateur', data._idUtilisateur);
+		console.log(`id_utilisateur ${data._idUtilisateur}`)
         localStorage.setItem('profil', data._profil);
         setIsConnected(true);
 		setCurrentComponent('vente_billet');

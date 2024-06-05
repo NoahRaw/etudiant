@@ -67,7 +67,7 @@ const Header = ({setCurrentComponent,setIsConnected}) => {
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                  <a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEwJod9RHUo12b0O6z4LQmZOUbkTH0r3pxsA&usqp=CAU" style={{width : 200}} alt=""/></a>
+                                  <a href="index.html"><img src="logo.webp" style={{width : 200}} alt=""/></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">

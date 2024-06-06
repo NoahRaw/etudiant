@@ -5,6 +5,7 @@ import Footer from './composant/template/Footer.js';
 import Login from "./composant/Login";
 import vente_billet from "./composant/billet/vente_billet.js";
 import NbrBilletVenduParEtudiant from "./composant/billet/nbrBilletVenduParEtudiant.js";
+import Csv from "./composant/billet/Csv.js";
 
 import './App.css';
 
@@ -24,6 +25,8 @@ export default function App(params) {
           return <ComponentToRender/>;
         case 'nbrBilletVenduParEtudiant':
           return <NbrBilletVenduParEtudiant/>;
+        case 'csv':
+            return <Csv/>;
         default:
           return <Login setIsConnected={setIsConnected} setCurrentComponent={setCurrentComponent}/>;
       }

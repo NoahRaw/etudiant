@@ -9,11 +9,6 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
   const [loading, setLoading] = useState(true);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const voir = () => 
-  {
-	setCurrentComponent('AllAnnonceRetour')
-  }
-
   const handleLogin = async (e) => {
     e.preventDefault();
 	setFormSubmitted(true);

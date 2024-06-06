@@ -85,17 +85,9 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 						<img src="Loading_2.gif" alt="Loading..." />
 					</div>
 					)}
-
-					<div class="container-login100-form-btn" style={{"margin-top": "50px"}}>
-						<button class="login100-form-btn" onClick={voir} style={{"background": "black"}}>
-							voir la liste des annonce
-						</button>
-					</div>
 					
 					<div class="text-center p-t-46 p-b-20">
-						<span class="txt2">
-							or sign up using
-						</span>
+						
 					</div>
 
 					<div class="login100-form-social flex-c-m">

@@ -20,7 +20,7 @@ const CsvUploader = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:2000/billet/csv', formData, {
+      const response = await axios.post('https://etudiant-backend.vercel.app/billet/csv', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

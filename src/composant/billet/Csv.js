@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 const CsvUploader = () => {
   const [file, setFile] = useState(null);
@@ -20,13 +19,22 @@ const CsvUploader = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('https://etudiant-backend.vercel.app/billet/csv', formData, {
+      const response = await fetch('https://etudiant-backend.vercel.app/billet/csv', {
+        method: 'POST',
+        body: formData,
         headers: {
-          'Content-Type': 'multipart/form-data',
+          // 'Content-Type': 'multipart/form-data', // Do not set this header when using FormData with fetch
         },
       });
-      setMessage('File uploaded successfully!');
-      console.log('Response:', response.data);
+
+      if (response.ok) {
+        const data = await response.json();
+        setMessage('File uploaded successfully!');
+        console.log('Response:', data);
+      } else {
+        setMessage('Error uploading file.');
+        console.error('Error uploading file:', response.statusText);
+      }
     } catch (error) {
       console.error('Error uploading file:', error);
       setMessage('Error uploading file.');

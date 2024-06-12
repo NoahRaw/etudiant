@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Header from './composant/template/Header.js';
 import Footer from './composant/template/Footer.js';
 import Login from "./composant/Login";
+import SignIn from "./composant/Sign_in.js";
 import vente_billet from "./composant/billet/vente_billet.js";
 import NbrBilletVenduParEtudiant from "./composant/billet/nbrBilletVenduParEtudiant.js";
 import Csv from "./composant/billet/Csv.js";
@@ -27,6 +28,8 @@ export default function App(params) {
           return <NbrBilletVenduParEtudiant/>;
         case 'csv':
             return <Csv/>;
+        case 'sign_in':
+          return <SignIn setIsConnected={setIsConnected} setCurrentComponent={setCurrentComponent}/>;
         default:
           return <Login setIsConnected={setIsConnected} setCurrentComponent={setCurrentComponent}/>;
       }

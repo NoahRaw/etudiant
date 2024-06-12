@@ -21,16 +21,13 @@ const CsvUploader = () => {
     try {
       const response = await fetch('https://etudiant-backend.vercel.app/billet/csv', {
         method: 'POST',
+        mode: 'no-cors',
         body: formData,
-        headers: {
-          // 'Content-Type': 'multipart/form-data', // Do not set this header when using FormData with fetch
-        },
       });
 
       if (response.ok) {
-        const data = await response.json();
         setMessage('File uploaded successfully!');
-        console.log('Response:', data);
+        console.log('Response:', response);
       } else {
         setMessage('Error uploading file.');
         console.error('Error uploading file:', response.statusText);
@@ -42,7 +39,7 @@ const CsvUploader = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px', marginBottom : '50px' }}>
+    <div style={{ textAlign: 'center', marginTop: '50px', marginBottom: '50px' }}>
       <h2>Upload CSV File</h2>
       <form onSubmit={handleSubmit}>
         <input type="file" accept=".csv" onChange={handleFileChange} />

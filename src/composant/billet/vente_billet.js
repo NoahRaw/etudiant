@@ -17,7 +17,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 
     useEffect(() => {
         // Appel API pour récupérer les localisations
-        fetch('https://etudiant-backend-csyozwddq-noahs-projects-49759aad.vercel.app/utilisateurs/localisations')
+        fetch('https://etudiant-backend.vercel.app/utilisateurs/localisations')
             .then(response => response.json())
             .then(data => setLocalisations(data))
             .catch(error => console.error('Error fetching localisations:', error));
@@ -25,7 +25,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 
     useEffect(() => {
         // Appel API pour récupérer les localisations
-        fetch('https://etudiant-backend-csyozwddq-noahs-projects-49759aad.vercel.app/billet/get_all_packs')
+        fetch('https://etudiant-backend.vercel.app/billet/get_all_packs')
             .then(response => response.json())
             .then(data => setPacks(data))
             .catch(error => console.error('Error fetching packs:', error));
@@ -47,7 +47,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
     console.log(`id_pack:${id_pack},quantite:${nbr_billet}`);
 
     try {
-		const response = await fetch('https://etudiant-backend-csyozwddq-noahs-projects-49759aad.vercel.app/billet/vente', {
+		const response = await fetch('https://etudiant-backend.vercel.app/billet/vente', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

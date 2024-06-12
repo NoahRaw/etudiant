@@ -20,7 +20,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 	setFormSubmitted(true);
 
     try {
-		const response = await fetch('https://etudiant-backend-csyozwddq-noahs-projects-49759aad.vercel.app/utilisateurs/sign_in', {
+		const response = await fetch('https://etudiant-backend.vercel.app/utilisateurs/sign_in', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

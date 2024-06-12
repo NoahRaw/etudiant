@@ -62,7 +62,7 @@ const Header = ({setCurrentComponent,setIsConnected}) => {
                                             <li><a href="#" onClick={() => handleClick('nbrBilletVenduParEtudiant')}>Vente de billets par etudiant</a></li>
                                             <li><a href="#" onClick={() => handleClick('vente_billet')}>Vente de billets</a></li>
                                             <li><a href="#" onClick={() => handleClick('csv')}>Import csv</a></li>
-                                            <li><a href="#" onClick={() => handleClick('Graphe_montant_par_pack')}>Graphe_montant_par_pack</a></li>
+                                            <li><a href="#" onClick={() => handleClick('Graphe_montant_par_pack')}>Graphe montant par pack</a></li>
                                             {loading===false &&
                                                 <li><a href="#" onClick={() => deconnection('login')}>Deconnexion</a></li>
                                             }

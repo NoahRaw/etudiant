@@ -20,6 +20,13 @@ export default function App(params) {
     vente_billet: vente_billet,
   };
 
+  window.onload = function() {
+    if (localStorage.getItem('id_utilisateur') !== null && isConnected === false) {
+      setCurrentComponent('nbrBilletVenduParEtudiant');
+      setIsConnected(true); 
+    }
+  }
+  
   const renderComponent = () => {
       const ComponentToRender = components[currentComponent];
       switch (currentComponent) {

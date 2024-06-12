@@ -32,10 +32,11 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 
       if (response.ok) {
         const data = await response.json();
-		console.log(data._idUtilisateur);
-        localStorage.setItem('id_utilisateur', data._idUtilisateur);
-		console.log(`id_utilisateur ${data._idUtilisateur}`)
-        localStorage.setItem('profil', data._profil);
+		console.log(data.idutilisateur);
+        localStorage.setItem('id_utilisateur', data.idutilisateur);
+		console.log(`id_utilisateur ${data.idutilisateur}`)
+        localStorage.setItem('profil', data.profil);
+		console.log(`profil ${data.profil}`);
         setIsConnected(true);
 		setCurrentComponent('nbrBilletVenduParEtudiant');
       } else {

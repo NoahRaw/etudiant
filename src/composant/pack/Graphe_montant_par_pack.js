@@ -14,21 +14,7 @@ const StatistiqueRevenue = () => {
           console.log(data);
           setChartData({
             labels: data.nom.map((nom) => nom),
-            datasets: [
-            {
-                label: "Statistique montant par pack",
-                data: data.montant_par_pack.map((montant_par_pack) => montant_par_pack),
-                backgroundColor: [
-                "rgba(75,192,192,1)",
-                "#ecf0f1",
-                "#50AF95",
-                "#f3ba2f",
-                "#2a71d0",
-                ],
-                borderColor: "black",
-                borderWidth: 2,
-            },
-              ],
+            datas: data.montant_par_pack.map((montant_par_pack) => montant_par_pack),
         })
         } else {
           console.error('Erreur lors de la requête HTTP:', response.statusText);
@@ -57,7 +43,7 @@ const StatistiqueRevenue = () => {
       <div style={{ width: 700 }}>
       {
         chartData!=null &&
-        <BarChart chartData={chartData} />
+        <BarChart labels={chartData.labels} datas={chartData.datas}/>
       }
       </div>
 

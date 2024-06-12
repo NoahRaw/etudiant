@@ -16,6 +16,11 @@ export default function App(params) {
 
   const [isConnected, setIsConnected] = useState(false);
 
+  if(localStorage.getItem('id_utilisateur'))
+  {
+    setIsConnected(true); 
+  }
+
   const components = {
     vente_billet: vente_billet,
   };

@@ -7,7 +7,7 @@ const StatistiqueRevenue = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:2000/pack/graphe_montant_par_pack`);
+        const response = await fetch(`https://etudiant-backend.vercel.app/pack/graphe_montant_par_pack`);
 
         if (response.ok) {
           const data = await response.json();

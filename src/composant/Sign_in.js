@@ -4,14 +4,15 @@ import React, { useState } from 'react';
 import '../css/Login.css';
 
 const Login = ({setIsConnected,setCurrentComponent}) => {
-  const [login, setLogin] = useState('admin@gmail.com');
+  const [login, setLogin] = useState('noah@gmail.com');
   const [pwd, setPwd] = useState('0000');
+  const [nom, setNom] = useState('noah');
   const [loading, setLoading] = useState(true);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const voir = () => 
   {
-	setCurrentComponent('sign_in')
+	setCurrentComponent('login')
   }
 
   const handleLogin = async (e) => {
@@ -19,13 +20,14 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 	setFormSubmitted(true);
 
     try {
-		const response = await fetch('https://etudiant-backend.vercel.app/utilisateurs', {
+		const response = await fetch('http://localhost:2000/utilisateurs/sign_in', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				mail: login,
+				nom : nom,
+                mail: login,
 				mdp : pwd,
 			}),
       	});
@@ -34,9 +36,8 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
         const data = await response.json();
 		console.log(data.idutilisateur);
         localStorage.setItem('id_utilisateur', data.idutilisateur);
-		console.log(`id_utilisateur ${data.idutilisateur}`)
+		console.log(`id_utilisateur ${data._idUtilisateur}`)
         localStorage.setItem('profil', data.profil);
-		console.log(`profil ${data.profil}`);
         setIsConnected(true);
 		setCurrentComponent('nbrBilletVenduParEtudiant');
       } else {
@@ -58,11 +59,16 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 			<div class="wrap-login100">
 				<form onSubmit={handleLogin} class="login100-form validate-form">
 					<span class="login100-form-title p-b-43">
-						Login to continue
+						Sign-in to continue
 					</span>
 					
+					<div class="wrap-input100 validate-input">
+						<input class="input100" value={nom} onChange={(e) => setNom(e.target.value)} type="text" placeholder='nom'/>
+						<span class="focus-input100"></span>
+						{/* <span class="label-input100">Email</span> */}
+					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" value={login} onChange={(e) => setLogin(e.target.value)} type="email" placeholder='email'/>
 						<span class="focus-input100"></span>
 						{/* <span class="label-input100">Email</span> */}
@@ -77,7 +83,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Login
+							Sign-in
 						</button>
 					</div>
 
@@ -89,10 +95,10 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 
 					<div class="container-login100-form-btn" style={{"margin-top": "50px"}}>
 						<button class="login100-form-btn" onClick={voir} style={{"background": "black"}}>
-							Sign-in
+							Login
 						</button>
 					</div>
-					
+
 					<div class="text-center p-t-46 p-b-20">
 						<span class="txt2">
 							

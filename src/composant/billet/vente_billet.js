@@ -25,7 +25,7 @@ const Login = ({setIsConnected,setCurrentComponent}) => {
 
     useEffect(() => {
         // Appel API pour récupérer les localisations
-        fetch('http://localhost:2000/billet/get_all_packs')
+        fetch('https://etudiant-backend.vercel.app/billet/get_all_packs')
             .then(response => response.json())
             .then(data => setPacks(data))
             .catch(error => console.error('Error fetching packs:', error));
